@@ -20,7 +20,7 @@ $(document).ready(function(ev){
 		}
 	});
 	
-  	$('#custom_carousel').bind('wheel', function(e) {
+    	$('#custom_carousel').bind('wheel', function(e) {
 		if(e.originalEvent.wheelDelta /120 > 0) {
 			$(this).carousel('next');
 		} else {
@@ -33,4 +33,11 @@ $(document).ready(function(ev){
 	$('#custom_carousel').bind("wheel", function() {
 		return false;
 	});
+	
+    $('#custom_carousel').on('slide.bs.carousel', function (evt) {
+		$('#custom_carousel .controls li.active').removeClass('active');
+		$('#custom_carousel .controls li:eq('+$(evt.relatedTarget).index()+')').addClass('active');
+    })
+
+
 });
