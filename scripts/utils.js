@@ -9,11 +9,18 @@ $(document).ready(function(ev){
 		$("main").toggleClass("move-to-left");
 		$(".sidebar-item").toggleClass("active");
 	}
+	function toggleSubMenus() {
+		$(".sub-sidebar-list").toggleClass("sub-sidebar-list-animation");
+	}
 	
 	$(".button").on("click tap", function() {
 		toggleSidebar();
 	});
-
+	
+	$(".sidebar-item").on("click tap", function() {
+		toggleSubMenus();
+	});
+	
 	$(document).keyup(function(e) {
 		if (e.keyCode === 27) {
 		toggleSidebar();
